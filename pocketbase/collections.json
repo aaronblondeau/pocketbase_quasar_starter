@@ -1,0 +1,184 @@
+[
+  {
+      "id": "systemprofiles0",
+      "name": "profiles",
+      "system": true,
+      "listRule": "userId = @request.user.id",
+      "viewRule": "userId = @request.user.id",
+      "createRule": "userId = @request.user.id",
+      "updateRule": "userId = @request.user.id",
+      "deleteRule": null,
+      "schema": [
+          {
+              "id": "pbfielduser",
+              "name": "userId",
+              "type": "user",
+              "system": true,
+              "required": true,
+              "unique": true,
+              "options": {
+                  "maxSelect": 1,
+                  "cascadeDelete": true
+              }
+          },
+          {
+              "id": "pbfieldname",
+              "name": "name",
+              "type": "text",
+              "system": false,
+              "required": false,
+              "unique": false,
+              "options": {
+                  "min": null,
+                  "max": null,
+                  "pattern": ""
+              }
+          },
+          {
+              "id": "pbfieldavatar",
+              "name": "avatar",
+              "type": "file",
+              "system": false,
+              "required": false,
+              "unique": false,
+              "options": {
+                  "maxSelect": 1,
+                  "maxSize": 5242880,
+                  "mimeTypes": [
+                      "image/jpg",
+                      "image/jpeg",
+                      "image/png",
+                      "image/svg+xml",
+                      "image/gif"
+                  ],
+                  "thumbs": null
+              }
+          }
+      ]
+  },
+  {
+      "id": "alywxiuhp1taxh4",
+      "name": "invoices",
+      "system": false,
+      "listRule": null,
+      "viewRule": null,
+      "createRule": null,
+      "updateRule": null,
+      "deleteRule": null,
+      "schema": [
+          {
+              "id": "mfm6xjjm",
+              "name": "customerName",
+              "type": "text",
+              "system": false,
+              "required": true,
+              "unique": false,
+              "options": {
+                  "min": null,
+                  "max": null,
+                  "pattern": ""
+              }
+          },
+          {
+              "id": "cyiinttw",
+              "name": "customerEmail",
+              "type": "text",
+              "system": false,
+              "required": true,
+              "unique": false,
+              "options": {
+                  "min": null,
+                  "max": null,
+                  "pattern": ""
+              }
+          },
+          {
+              "id": "wyuurvgv",
+              "name": "owner",
+              "type": "user",
+              "system": false,
+              "required": true,
+              "unique": false,
+              "options": {
+                  "maxSelect": 1,
+                  "cascadeDelete": true
+              }
+          }
+      ]
+  },
+  {
+      "id": "5ycvzx9efr14xa7",
+      "name": "lineItems",
+      "system": false,
+      "listRule": null,
+      "viewRule": null,
+      "createRule": null,
+      "updateRule": null,
+      "deleteRule": null,
+      "schema": [
+          {
+              "id": "2a6a6dar",
+              "name": "name",
+              "type": "text",
+              "system": false,
+              "required": true,
+              "unique": false,
+              "options": {
+                  "min": null,
+                  "max": null,
+                  "pattern": ""
+              }
+          },
+          {
+              "id": "7kys8pdq",
+              "name": "description",
+              "type": "text",
+              "system": false,
+              "required": false,
+              "unique": false,
+              "options": {
+                  "min": null,
+                  "max": null,
+                  "pattern": ""
+              }
+          },
+          {
+              "id": "vqmsel58",
+              "name": "priceInUSDC",
+              "type": "number",
+              "system": false,
+              "required": true,
+              "unique": false,
+              "options": {
+                  "min": null,
+                  "max": null
+              }
+          },
+          {
+              "id": "blse6pqa",
+              "name": "dueDate",
+              "type": "date",
+              "system": false,
+              "required": true,
+              "unique": false,
+              "options": {
+                  "min": "",
+                  "max": ""
+              }
+          },
+          {
+              "id": "7aliyddf",
+              "name": "invoice",
+              "type": "relation",
+              "system": false,
+              "required": true,
+              "unique": false,
+              "options": {
+                  "maxSelect": 1,
+                  "collectionId": "alywxiuhp1taxh4",
+                  "cascadeDelete": true
+              }
+          }
+      ]
+  }
+]
