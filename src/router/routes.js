@@ -20,6 +20,14 @@ const routes = [
     ]
   },
 
+  {
+    path: '/invoice',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: ':invoiceId', name: 'invoice', meta: { requiresAuth: true }, component: () => import('pages/invoice/InvoicePage.vue') }
+    ]
+  },
+
   // Always leave this as last one,
   // but you can also remove it
   {

@@ -49,7 +49,7 @@
 
         <q-card-section>
           <p>
-            Your CryptoCollect account and all the data it contains will be permanently destroyed.
+            Your PBStarter account and all the data it contains will be permanently destroyed.
           </p>
 
           <q-input

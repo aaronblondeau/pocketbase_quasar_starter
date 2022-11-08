@@ -1,8 +1,8 @@
 {
-  "name": "com.aaronblondeau.parallax-sample",
+  "name": "com.aaronblondeau.pbstarter",
   "version": "0.0.1",
   "description": "Code Sample",
-  "productName": "CryptoCollect",
+  "productName": "PBStarter",
   "author": "Aaron Blondeau <aaronblondeau@gmail.com>",
   "private": true,
   "scripts": {
@@ -12,9 +12,11 @@
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
+    "luxon": "^3.1.0",
     "pinia": "^2.0.11",
     "pocketbase": "^0.7.4",
     "quasar": "^2.6.0",
+    "validator": "^13.7.0",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0"
   },

@@ -4,7 +4,7 @@
       <q-toolbar>
         <q-toolbar-title>
           <router-link :to="{name: 'home'}" style="text-decoration: none; color: white;">
-            CryptoCollect
+            PBStarter
           </router-link>
         </q-toolbar-title>
 

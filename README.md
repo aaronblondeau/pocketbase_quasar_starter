@@ -1,51 +1,28 @@
-# CryptoCollect (com.aaronblondeau.parallax-sample)
+# PBStarter (com.aaronblondeau.parallax-sample)
 
-Code Sample
+PocketBase Starter Project
 
+This is a demo/starter for using Pocketbase with Quasar for rapid application development.
 
-TODO - Must have MAC instructions.
+# Backend - Pocketbase
 
+Begin by downloading pocketbase, extracting the executable and running it locally. I recommend doing this in the "pocketbase" folder included in this project. Full instructions can be found here : [https://pocketbase.io/docs/](https://pocketbase.io/docs/).
 
-Download PB, extract to pocketbase folder.
-You should have ./pocketbase/pocketbase.exe
-https://pocketbase.io/docs/
+```
+./pocketbase.exe serve
+```
 
-cd pocketbase
-.\pocketbase.exe serve
+Once Pocketbase is running, go to http://127.0.0.1:8090/_/ and create an admin account.
 
-Go to http://127.0.0.1:8090/_/ and create an admin account.
+Then, go to Settings > Import collections, and import ./pocketbase/collections.json
 
-Import collections.json
+While in settings make sure to configure the application name and configure SMTP settings (with Mailtrap). 
 
-Configure SMTP (mailtrap!)
+## Frontend - Quasar
 
-
-## Install the dependencies
 ```bash
+# install dependencies
 yarn
-# or
-npm install
+# run
+yarn dev
 ```
-
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
-```bash
-quasar dev
-```
-
-
-### Lint the files
-```bash
-yarn lint
-# or
-npm run lint
-```
-
-
-
-### Build the app for production
-```bash
-quasar build
-```
-
-### Customize the configuration
-See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
