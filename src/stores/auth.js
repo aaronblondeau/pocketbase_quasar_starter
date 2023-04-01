@@ -24,17 +24,17 @@ export const useAuthStore = defineStore('auth', () => {
   const ready = ref(Promise.resolve(true))
 
   async function register (email, password, passwordConfirm) {
-    await pocketbaseClient.users.create({
+    await pocketbaseClient.collection('users').create({
       email,
       password,
       passwordConfirm
     })
-    await pocketbaseClient.users.requestVerification(email)
+    await pocketbaseClient.collection('users').requestVerification(email)
     await login(email, password)
   }
 
   async function login (email, password) {
-    return pocketbaseClient.users.authViaEmail(email, password)
+    return pocketbaseClient.collection('users').authWithPassword(email, password)
   }
 
   async function logout () {
@@ -42,18 +42,18 @@ export const useAuthStore = defineStore('auth', () => {
   }
 
   async function sendPasswordReset (email) {
-    await pocketbaseClient.users.requestPasswordReset(email)
+    await pocketbaseClient.collection('users').requestPasswordReset(email)
   }
 
   async function sendVerification (email) {
     if (user.value) {
-      await pocketbaseClient.users.requestVerification(user.value.email)
+      await pocketbaseClient.collection('users').requestVerification(user.value.email)
     }
   }
 
   async function destroyAccount (password) {
-    await pocketbaseClient.users.authViaEmail(user.value.email, password)
-    await pocketbaseClient.users.delete(user.value.id)
+    await pocketbaseClient.collection('users').authWithPassword(user.value.email, password)
+    await pocketbaseClient.collection('users').delete(user.value.id)
     await pocketbaseClient.authStore.clear()
   }
 

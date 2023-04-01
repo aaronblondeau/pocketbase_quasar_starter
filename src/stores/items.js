@@ -6,14 +6,14 @@ export const useItemsStore = defineStore('items', () => {
   const pocketbaseClient = new PocketBase(process.env.POCKETBASE_URL || 'http://127.0.0.1:8090')
 
   async function fetchItems (invoiceId, page, perPage) {
-    const pageResult = await pocketbaseClient.records.getList('items', page || 1, perPage || 10, {
+    const pageResult = await pocketbaseClient.collection('items').getList(page || 1, perPage || 10, {
       filter: `invoice = "${invoiceId}"`
     })
     return pageResult
   }
 
   async function fetchItem (id) {
-    const record = await pocketbaseClient.records.getOne('items', id) // , { expand: 'invoice' })
+    const record = await pocketbaseClient.collection('items').getOne(id) // , { expand: 'invoice' })
     return record
   }
 
@@ -25,7 +25,7 @@ export const useItemsStore = defineStore('items', () => {
       priceInUSDC,
       dueDate
     })
-    const record = await pocketbaseClient.records.create('items', {
+    const record = await pocketbaseClient.collection('items').create({
       invoice: invoiceId,
       name,
       description,
@@ -36,11 +36,11 @@ export const useItemsStore = defineStore('items', () => {
   }
 
   async function deleteItem (id) {
-    await pocketbaseClient.records.delete('items', id)
+    await pocketbaseClient.records.collection('items').delete(id)
   }
 
   async function updateItem (id, updates) {
-    const record = await pocketbaseClient.records.update('items', id, updates)
+    const record = await pocketbaseClient.collection('items').update(id, updates)
     return record
   }
 

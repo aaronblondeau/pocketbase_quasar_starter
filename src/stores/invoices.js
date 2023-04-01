@@ -8,17 +8,17 @@ export const useInvoicesStore = defineStore('invoices', () => {
   const authStore = useAuthStore()
 
   async function fetchInvoices (page, perPage) {
-    const pageResult = await pocketbaseClient.records.getList('invoices', page || 1, perPage || 10)
+    const pageResult = await pocketbaseClient.collection('invoices').getList(page || 1, perPage || 10)
     return pageResult
   }
 
   async function fetchInvoice (id) {
-    const record = await pocketbaseClient.records.getOne('invoices', id) // , { expand: 'items' })
+    const record = await pocketbaseClient.collection('invoices').getOne(id) // , { expand: 'items' })
     return record
   }
 
   async function createInvoice (customerName, customerEmail) {
-    const record = await pocketbaseClient.records.create('invoices', {
+    const record = await pocketbaseClient.collection('invoices').create({
       customerName,
       customerEmail,
       owner: authStore.user.id
@@ -27,11 +27,11 @@ export const useInvoicesStore = defineStore('invoices', () => {
   }
 
   async function deleteInvoice (id) {
-    await pocketbaseClient.records.delete('invoices', id)
+    await pocketbaseClient.collection('invoices').delete(id)
   }
 
   async function updateInvoice (id, updates) {
-    const record = await pocketbaseClient.records.update('invoices', id, updates)
+    const record = await pocketbaseClient.collection('invoices').update(id, updates)
     return record
   }
 
